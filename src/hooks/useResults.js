@@ -5,17 +5,17 @@ export default () => {
   const [results, setResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const searchApi = async () => {
-    
+  const searchApi = async (skipNumber) => {
+    console.log(skipNumber)
     try {
       const response = await storeRobin.get('', {
         params: {
-          skip : 0,
-          limit : 50
+          skip : skipNumber ? skipNumber : 0,
+          limit : 20
         }
       });
       
-      setResults(response.data);
+      setResults([...results,...response.data]);
     } catch (err) {
       setErrorMessage('Something went wrong');
     }
