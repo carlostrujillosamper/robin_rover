@@ -4,7 +4,6 @@ import useFavourites from "../hooks/useFavourites";
 
 const GlobalState = (props) => {
   const [favourites, toggleFavs] = useFavourites();
-
   return (
     <Context.Provider value = {{
         favourites,

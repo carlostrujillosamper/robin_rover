@@ -13,7 +13,7 @@ import StoreCard from "../components/StoreCard";
 
 const FavouriteList = () => {
   const context = useContext(Context);
-
+    
   return (
     <View
       style={{ marginTop: 100, justifyContent: "center", alignItems: "center" }}

@@ -1,11 +1,7 @@
 import React, { useContext } from "react";
 import {
   View,
-  Text,
-  StyleSheet,
   FlatList,
-  TouchableOpacity,
-  ScrollView,
 } from "react-native";
 import useResults from "../hooks/useResults";
 import Context from "../context/Context";
@@ -23,13 +19,7 @@ const StoreList = () => {
         keyExtractor={(result) => result._id}
         renderItem={({ item }) => {
           return (
-            // <TouchableOpacity
-            //   onPress={() => {
-            //     context.toggleFavs(item);
-            //   }}
-            // >
               <StoreCard item = {item}></StoreCard>
-            //  </TouchableOpacity> 
           );
         }}
         onEndReached={() => {

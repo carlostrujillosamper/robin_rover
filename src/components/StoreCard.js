@@ -11,9 +11,12 @@ import Context from "../context/Context";
 
 const StoreCard = ({ item }) => {
   const context = useContext(Context);
-  console.log(item);
-
   const [display, setDisplay] = useState({ display: false });
+  console.log(
+    context.favourites.some(
+      (favItem) => JSON.stringify(favItem) == JSON.stringify(item)
+    )
+  );
 
   return (
     <TouchableOpacity
@@ -29,7 +32,9 @@ const StoreCard = ({ item }) => {
           <Text style={styles.cardText}>{item.category}</Text>
           <Text style={styles.cardText}>id</Text>
           <Text style={styles.cardText}>domain</Text>
-          {context.favourites.includes(item) ? (
+          {context.favourites.some(
+            (favItem) => JSON.stringify(favItem) == JSON.stringify(item)
+          ) ? (
             <TouchableOpacity
               onPress={() => {
                 context.toggleFavs(item);
@@ -55,7 +60,9 @@ const StoreCard = ({ item }) => {
 
           <Text style={styles.cardText}>{item.name}</Text>
           <Text style={styles.cardText}>{item.category}</Text>
-          {context.favourites.includes(item) ? (
+          {context.favourites.some(
+            (favItem) => JSON.stringify(favItem) == JSON.stringify(item)
+          ) ? (
             <TouchableOpacity
               onPress={() => {
                 context.toggleFavs(item);
@@ -105,10 +112,10 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "red",
     width: 5,
-    height: '80%',
+    height: "80%",
     left: 15,
     top: 5,
-    borderRadius:5
+    borderRadius: 5,
   },
 });
 
