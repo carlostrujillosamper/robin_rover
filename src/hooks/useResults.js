@@ -6,7 +6,6 @@ export default () => {
   const [errorMessage, setErrorMessage] = useState('');
 
   const searchApi = async (skipNumber) => {
-    console.log(skipNumber)
     try {
       const response = await storeRobin.get('', {
         params: {

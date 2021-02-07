@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import useResults from "../hooks/useResults";
 import Context from "../context/Context";
+import StoreCard from "../components/StoreCard";
 
 const StoreList = () => {
   const [searchApi, results, errorMessage] = useResults();
@@ -22,26 +23,13 @@ const StoreList = () => {
         keyExtractor={(result) => result._id}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity
-              onPress={() => {
-                context.toggleFavs(item);
-              }}
-            >
-              <View
-                style={{
-                  flex: 1,
-                  margin: 10,
-                  width: 300,
-                  borderLeftColor: "red",
-                  borderRadius: 5,
-
-                  backgroundColor: "grey",
-                }}
-              >
-                <Text>{item.name}</Text>
-                <Text>{item.category}</Text>
-              </View>
-            </TouchableOpacity>
+            // <TouchableOpacity
+            //   onPress={() => {
+            //     context.toggleFavs(item);
+            //   }}
+            // >
+              <StoreCard item = {item}></StoreCard>
+            //  </TouchableOpacity> 
           );
         }}
         onEndReached={() => {

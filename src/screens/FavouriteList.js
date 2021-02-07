@@ -8,6 +8,8 @@ import {
   ScrollView,
 } from "react-native";
 import Context from "../context/Context";
+import StoreCard from "../components/StoreCard";
+
 
 const FavouriteList = () => {
   const context = useContext(Context);
@@ -21,20 +23,7 @@ const FavouriteList = () => {
         keyExtractor={(favourite) => favourite._id}
         renderItem={({ item }) => {
           return (
-            <View
-              style={{
-                flex: 1,
-                margin: 10,
-                width: 300,
-                borderLeftColor: "red",
-                borderRadius: 5,
-
-                backgroundColor: "grey",
-              }}
-            >
-              <Text>{item.name}</Text>
-              <Text>{item.category}</Text>
-            </View>
+              <StoreCard item={item}></StoreCard>
           );
         }}
        
