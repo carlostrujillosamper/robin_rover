@@ -12,11 +12,6 @@ import Context from "../context/Context";
 const StoreCard = ({ item }) => {
   const context = useContext(Context);
   const [display, setDisplay] = useState({ display: false });
-  console.log(
-    context.favourites.some(
-      (favItem) => JSON.stringify(favItem) == JSON.stringify(item)
-    )
-  );
 
   return (
     <TouchableOpacity
@@ -30,8 +25,8 @@ const StoreCard = ({ item }) => {
           <View style={styles.verticalLine}></View>
           <Text style={styles.cardText}>{item.name}</Text>
           <Text style={styles.cardText}>{item.category}</Text>
-          <Text style={styles.cardText}>id</Text>
-          <Text style={styles.cardText}>domain</Text>
+          <Text style={styles.cardText}>{item.id}</Text>
+          <Text style={styles.cardText}>{item.domain}</Text>
           {context.favourites.some(
             (favItem) => JSON.stringify(favItem) == JSON.stringify(item)
           ) ? (

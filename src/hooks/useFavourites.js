@@ -1,18 +1,6 @@
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-community/async-storage";
 
-const logCurrentStorage = () => {
-  AsyncStorage.getAllKeys().then((keyArray) => {
-    AsyncStorage.multiGet(keyArray).then((keyValArray) => {
-      let myStorage: any = {};
-      for (let keyVal of keyValArray) {
-        myStorage[keyVal[0]] = keyVal[1];
-      }
-
-      console.log("CURRENT STORAGE: ", myStorage);
-    });
-  });
-};
 
 const saveFavsLocal = async (favourites) => {
   try {
@@ -34,7 +22,6 @@ const fetchSavedFavs = async (setFavourites, favourites) => {
 };
 
 export default () => {
-  logCurrentStorage();
   const [favourites, setFavourites] = useState([]);
 
   const toggleFavs = (store) => {
