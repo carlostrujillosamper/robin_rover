@@ -23,10 +23,10 @@ const StoreCard = ({ item }) => {
       {!display ? (
         <View style={styles.card}>
           <View style={styles.verticalLine}></View>
-          <Text style={styles.cardText}>{item.name}</Text>
-          <Text style={styles.cardText}>{item.category}</Text>
-          <Text style={styles.cardText}>{item.id}</Text>
-          <Text style={styles.cardText}>{item.domain}</Text>
+          <Text style={styles.titleText}>{item.name}</Text>
+          <Text style={styles.detailText}>{item.category}</Text>
+          <Text style={styles.detailText}>{item._id}</Text>
+          <Text style={styles.detailText}>{item.domain}</Text>
           {context.favourites.some(
             (favItem) => JSON.stringify(favItem) == JSON.stringify(item)
           ) ? (
@@ -53,8 +53,8 @@ const StoreCard = ({ item }) => {
         <View style={styles.card}>
           <View style={styles.verticalLine}></View>
 
-          <Text style={styles.cardText}>{item.name}</Text>
-          <Text style={styles.cardText}>{item.category}</Text>
+          <Text style={styles.titleText}>{item.name}</Text>
+          <Text style={styles.detailText}>{item.category}</Text>
           {context.favourites.some(
             (favItem) => JSON.stringify(favItem) == JSON.stringify(item)
           ) ? (
@@ -89,12 +89,24 @@ const styles = StyleSheet.create({
     width: 300,
     borderRadius: 10,
     backgroundColor: "#E3E3E3",
+    color: 'blue'
   },
 
-  cardText: {
+  titleText:{
     marginTop: 10,
     marginLeft: 35,
     marginBottom: 10,
+    color: 'rgb(125, 176, 255)',
+    fontWeight: 'bold',
+    fontSize: 15
+
+  },
+
+  detailText: {
+    marginTop: 10,
+    marginLeft: 35,
+    marginBottom: 10,
+    color: 'rgb(125, 176, 255)'
   },
 
   icon: {
